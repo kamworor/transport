@@ -216,3 +216,65 @@ main{
    max-height: 100%;
    
  }
+/* The comment dahboard */
+.sidebar {
+   background-color:darkblue;
+   color: #fff;
+   width: 200px;
+   height: 100vh;
+   padding-top: 20px;
+ }
+ 
+ .logo {
+   text-align: center;
+   margin-bottom: 20px;
+ }
+ 
+ .menu {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+ }
+ 
+ .menu li {
+   margin-bottom: 10px;
+ }
+ 
+ .menu li a {
+   display: block;
+   color: #fff;
+   text-decoration: none;
+   padding: 10px;
+ }
+ /* register*/
+ div.change {
+   width: 300px;
+   margin: 0 auto;
+   
+ }
+ 
+ /* Styling for the form fields */
+ div.change input[type="text"],
+ div.change input[type="email"],
+ div.change input[type="password"] {
+   width: 100%;
+   padding: 8px;
+   margin-bottom: 10px;
+ }
+ 
+ /* Styling for the submit button */
+ 
+ /* Styling for the submit button on hover */
+ div.change input[type="submit"]:hover {
+   background-color: darkorange;
+ }
+ div.change input[type="submit"] {
+   width: 100%;
+   padding: 10px;
+   background-color: orange;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+ }
+ 
