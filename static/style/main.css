@@ -263,6 +263,11 @@ main{
  }
  
  /* Styling for the submit button */
+ 
+ /* Styling for the submit button on hover */
+ div.change input[type="submit"]:hover {
+   background-color: darkorange;
+ }
  div.change input[type="submit"] {
    width: 100%;
    padding: 10px;
@@ -273,7 +278,3 @@ main{
    cursor: pointer;
  }
  
- /* Styling for the submit button on hover */
- div.change input[type="submit"]:hover {
-   background-color: darkorange;
- }
