@@ -5,25 +5,20 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 def login_view(request):
-    page = 'login' 
     
     if request.method == 'POST': 
             username = request.POST.get('username').lower()
             password = request.POST.get('password')
 
-            try:
-                user = User.objects.get(username=username)   
-            except: 
-                messages.error(request, 'User does not exist.')
-
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return redirect('dashboard')  
             else:
                 messages.error(request, 'Invalid username or password.')
+                return redirect('login')
 
-    context = {'page':page}
+    context = {}
     return render(request, 'login.html', context) 
 
 def logoutUser(request):
@@ -38,16 +33,19 @@ def registerUser(request):
 
             form = UserCreationForm(request.POST)
             if form.is_valid():
-                user = form.save(commit=False)
+                user = form.save(commit=False) 
                 user.username = user.username.lower()  
                 user.save()
                 login(request, user)
-                return redirect('home')
+                return redirect('dashboard')
             else:
                messages.error(request, 'An error occured during registration')
    
-    return render(request, 'login.html', {'form':form})
+    return render(request, 'register.html', {'form':form})
 
 def home(request):
     return render(request,'home.html' )
+
+def dashboard(request):
+     return render(request, 'dashboard.html')
 
