@@ -2,16 +2,73 @@
 
 {% block content %}
 <div class="sidebar">
-    <div class="logo">
-      <h1>Dashboard</h1>
-    </div>
-    <ul class="menu">
-      <li><a href="#" class="active"><i class="fas fa-user"></i> Profile</a></li>
-      <li><a href="#"><i class="fa fa-truck"></i> Vehicle</a></li>
-      <li><a href="#"><i class="fas fa-clipboard"></i> New Orders</a></li>
-      <li><a href="#"><i class="fas fa-history"></i> History</a></li>
-      <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-    </ul>
+  <div class="logo">
+    <h1>Dashboard</h1>
   </div>
+  <ul class="menu">
+   <li><a href="#profile" class="active"><i class="fas fa-user"></i> Profile</a></li>
+   <li><a href="#vehicle"><i class="fas fa-car"></i> Vehicle</a></li>
+   <li><a href="#new-orders"><i class="fas fa-clipboard"></i> New Orders</a></li>
+   <li><a href="#history"><i class="fas fa-history"></i> History</a></li>
+   <li><a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+  </ul>
+</div>
+<div class="wrapper">
+<div class="content">
+  <section id="profile" >
+    <h2>Profile</h2>
+    <p>Content for Profile section goes here.</p>
+  </section>
+  <section id="vehicle" >
+    <h2>Vehicle</h2>
+     
+<form id="vehicleForm">
+  <label for="vehicleDetails">
+    <i class="fas fa-car"></i> Vehicle Details:
+  </label>
+  <input type="text" id="vehicleDetails" name="vehicleDetails" required>
 
+  <label for="numberPlate">
+    <i class="fas fa-id-card"></i> Number Plate:
+  </label>
+  <input type="text" id="numberPlate" name="numberPlate" required>
+
+  <label for="vehicleImage">Vehicle Image:</label>
+  <input type="file" id="vehicleImage" name="vehicleImage" accept="image/*" required>
+
+  <input type="submit" value="Save" class="green-button">
+</form>
+
+<div id="vehicleInfo">
+  <h3>Added Vehicle:</h3>
+  <table>
+    <tr>
+      <th>Details</th>
+      <th>Number Plate</th>
+      <th>Status</th>
+      <th>Photo</th>
+    </tr>
+    <tr>
+      <td id="displayVehicleDetails"></td>
+      <td id="displayNumberPlate"></td>
+      <td id="displayStatus"></td>
+      <td><img id="displayVehicleImage" src="#" alt="Vehicle Photo"></td>
+    </tr>
+  </table>
+</div>
+  </section>
+  <section id="new-orders" >
+    <h2>New Orders</h2>
+    <p>Content for New Orders section goes here.</p>
+  </section>
+  <section id="history" >
+    <h2>History</h2>
+    <p>Content for History section goes here.</p>
+  </section>
+  <section id="logout" >
+    <h2>Logout</h2>
+    <p>Content for Logout section goes here.</p>
+  </section>
+</div>
+</div>
 {% endblock %}
