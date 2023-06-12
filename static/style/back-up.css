@@ -1,158 +1,165 @@
+
 .sidebar {
-    background-color: blue;
-    color: #fff;
-    width: 200px;
+  background-color: blue;
+  color: #fff;
+  width: 200px;
+  height: 100vh;
+  padding-top: 20px;
+  
+}
+
+
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu li a {
+  display: block;
+  color: #f8f7f7;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.menu li a:hover {
+  background-color: #555;
+}
+
+.content {
+    margin-left: 200px; /* Adjust this value to match the width of the sidebar */
+    padding: 20px;
+    background-color: #fff;
     height: 100vh;
-    padding-top: 20px;
-    
+    width: 80vh;
+    top:0;
+
   }
-  
-  
-  
-  .menu {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  .sidebar {
+    float: left;
+    width: 200px;
+    height: 97vh;
   }
-  
-  .menu li {
-    margin-bottom: 10px;
+
+ 
+  section{
+    height: 100vh;
+    padding :30px;
   }
-  
-  .menu li a {
-    display: block;
-    color: #f8f7f7;
-    text-decoration: none;
-    padding: 10px;
+  #profile{
+    background-color: light blue;
+
   }
-  
-  .menu li a:hover {
-    background-color: #555;
+  #vehicle{
+     background-color: dark blue;
+     
+
   }
+  #new-orders{
+ background-color: light blue;
+  }
+  #history{
+ background-color: light blue;
+  }
+  #logout{
+     background-color: light blue;
+
+  }
+  #vehicle {
+  padding: 20px;
+}
+
+#vehicleForm {
+  margin-bottom: 20px;
+}
+
+#vehicleForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#vehicleForm input[type="text"],
+#vehicleForm input[type="file"] {
+  width: 20%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+#vehicleForm input[type="text"],
+#vehicleForm input[type="file"] {
+width: 100%; /* Adjust this width value to your preference */
+padding: 10px;
+margin-bottom: 10px;
+box-sizing: border-box; /* Include padding within the width calculation */
+}
+#vehicleForm input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #19c44c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#vehicleInfo {
+
+  overflow-y: scroll;
+  max-height: 100px; /* Adjust the max-height value as needed */
+  width:50%;
   
+}
+
+#vehicleInfo table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#vehicleInfo th,
+#vehicleInfo td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+#vehicleInfo th {
+  background-color:blue;
+  color: #fff;
+}
+
+#displayVehicleImage {
+  max-width: 100px;
+  max-height: 100px;
+}
+td{
+  color:blue;
+}
+.green-button {
+  background-color: green;
+  
+}
+
+.content {
+  overflow: hidden;
+  padding: 20px;
+  background-color: #fff;
+  
+}
+
+
   .content {
+      margin-top: 0;
       margin-left: 200px; /* Adjust this value to match the width of the sidebar */
       padding: 20px;
       background-color: #fff;
-      height: 100vh;
-      width: 80vh;
-      top:0;
-  
+      height: calc(100vh - 20px); /* Adjust this value based on the desired height and padding */
     }
-    .sidebar {
-      float: left;
-      width: 200px;
-      height: 97vh;
-    }
-  
-   
-    section{
-      height: 100vh;
-      padding :30px;
-    }
-    #profile{
-      background-color: light blue;
-  
-    }
-    #vehicle{
-       background-color: dark blue;
-  
-    }
-    #new-orders{
-   background-color: light blue;
-    }
-    #history{
-   background-color: light blue;
-    }
-    #logout{
-       background-color: light blue;
-  
-    }
-    #vehicle {
-    padding: 20px;
-  }
-  
-  #vehicleForm {
-    margin-bottom: 20px;
-  }
-  
-  #vehicleForm label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  #vehicleForm input[type="text"],
-  #vehicleForm input[type="file"] {
-    width: 20%;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  #vehicleForm input[type="text"],
-#vehicleForm input[type="file"] {
-  width: 100%; /* Adjust this width value to your preference */
-  padding: 10px;
-  margin-bottom: 10px;
-  box-sizing: border-box; /* Include padding within the width calculation */
-}
-  #vehicleForm input[type="submit"] {
-    padding: 10px 20px;
-    background-color: #19c44c;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  #vehicleInfo {
-    margin-top: 20px;
-  }
-  
-  #vehicleInfo table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  #vehicleInfo th,
-  #vehicleInfo td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
-  }
-  
-  #vehicleInfo th {
-    background-color:blue;
-    color: #fff;
-  }
-  
-  #displayVehicleImage {
-    max-width: 100px;
-    max-height: 100px;
-  }
-  td{
-    color:blue;
-  }
-  .green-button {
-    background-color: green;
     
-  }
+    .wrapper{
+      width: 70%;
   
-  .content {
-    overflow: hidden;
-    padding: 20px;
-    background-color: #fff;
-    
-    
-  }
-  
-  
-    .content {
-        margin-top: 0;
-        margin-left: 200px; /* Adjust this value to match the width of the sidebar */
-        padding: 20px;
-        background-color: #fff;
-        height: calc(100vh - 20px); /* Adjust this value based on the desired height and padding */
-      }
+      } 
       
-      .wrapper{
-        width: 70%;
-    
-        } 
+      
