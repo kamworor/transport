@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div id="vehicleInfo">
+    <h3>Added Vehicles:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Details</th>
+                <th>Number Plate</th>
+                <th>Photo</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehicle in vehicles %}
+            <tr>
+                <td>{{vehicle.vehicleType}}</td>
+                <td>{{vehicle.numberPlate}}</td>
+                <td>
+                    {% if vehicle.vehicle_image %}
+                    <img src="{{ MEDIA_URL }}{{vehicle.vehicle_image.url }}" width=200 alt="Image">
+                    {% else %}
+                     <p>No image available</p>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if vehicle.is_booked %}
+                         Booked
+                         {% else %}
+                         Not Booked
+                         {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+       </tbody>
+    </table>
+  </div>
+
+  {% endblock %}

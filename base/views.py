@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from .forms import VehiclesForm
+from .models import Display,Vehicles
 
 def login_view(request):
     
@@ -34,18 +37,35 @@ def registerUser(request):
             form = UserCreationForm(request.POST)
             if form.is_valid():
                 user = form.save(commit=False) 
-                user.username = user.username.lower()  
+                user.username = user.username.lower()   
                 user.save()
                 login(request, user)
                 return redirect('dashboard')
             else:
                messages.error(request, 'An error occured during registration')
    
-    return render(request, 'register.html', {'form':form})
+    return render(request, 'register.html', {'form':form}) 
 
 def home(request):
-    return render(request,'home.html' )
+    return render(request,'home.html' ) 
 
-def dashboard(request):
-     return render(request, 'dashboard.html')
+def dashboard(request):     
+     submitted = False
+     if request.method == 'POST':
+          form =VehiclesForm(request.POST, request.FILES)
+          if form.is_valid():
+              
+               form.save()
+               return HttpResponseRedirect('/display') 
+     else: 
+        form = VehiclesForm()
+        if 'submitted' in request.GET: 
+             submitted = True
+      
+     context = {'form':form, 'submitted':submitted}
+     return render(request, 'dashboard.html', context)  
+
+def display(request):
+     vehicles =Vehicles.objects.all()  
+     return render(request, 'display.html',{'vehicles':vehicles})
 

@@ -20,42 +20,25 @@
     <p>Content for Profile section goes here.</p>
   </section>
   <section id="vehicle" >
+
     <h2>Vehicle</h2>
-     
-<form id="vehicleForm">
-  <label for="vehicleDetails">
-    <i class="fas fa-car"></i> Vehicle Details:
-  </label>
-  <input type="text" id="vehicleDetails" name="vehicleDetails" required>
+     {% if submitted %}
+     Your booking was submitted succesfully!!! 
 
-  <label for="numberPlate">
-    <i class="fas fa-id-card"></i> Number Plate:
-  </label>
-  <input type="text" id="numberPlate" name="numberPlate" required>
+     {% else %}
 
-  <label for="vehicleImage">Vehicle Image:</label>
-  <input type="file" id="vehicleImage" name="vehicleImage" accept="image/*" required>
+    
+    <form id="vehicleForm" action="{% url 'dashboard' %}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %} 
+   {{form.as_p}}
+   <input type="submit" value="Save" class="green-button">
+    {% endif %}
 
-  <input type="submit" value="Save" class="green-button">
-</form>
+  
+  
 
-<div id="vehicleInfo">
-  <h3>Added Vehicle:</h3>
-  <table>
-    <tr>
-      <th>Details</th>
-      <th>Number Plate</th>
-      <th>Status</th>
-      <th>Photo</th>
-    </tr>
-    <tr>
-      <td id="displayVehicleDetails"></td>
-      <td id="displayNumberPlate"></td>
-      <td id="displayStatus"></td>
-      <td><img id="displayVehicleImage" src="#" alt="Vehicle Photo"></td>
-    </tr>
-  </table>
-</div>
+
+
   </section>
   <section id="new-orders" >
     <h2>New Orders</h2>
