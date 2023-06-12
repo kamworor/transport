@@ -147,10 +147,8 @@ td{
   background-color: #fff;
   
 }
-.wrapper{
-  width: 70%;
 
-  } 
+
   
 
   .content {
@@ -161,5 +159,7 @@ td{
       height: calc(100vh - 20px); /* Adjust this value based on the desired height and padding */
     }
     
-   
+    .wrapper{
+      width: 70%;
+    }    
       
