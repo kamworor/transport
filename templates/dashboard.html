@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <script src="{% static 'js/script.js' %}"></script>
+<div class="grid">
 <div class="sidebar">
   <div class="logo">
     <h1>Dashboard</h1>
@@ -18,7 +19,10 @@
 <div class="content">
   <section id="profile" >
     <h2>Profile</h2>
-    <p>Content for Profile section goes here.</p>
+    
+    {% include 'display.html' %}
+
+
   </section>
   <section id="vehicle" >
 
@@ -35,7 +39,7 @@
    <input type="submit" value="Save" class="green-button">
     {% endif %}
 
-    {% include 'display.html' %}
+    
 
   </section>
   <section id="new-orders" >
@@ -50,6 +54,7 @@
     <h2>Logout</h2>
     <p>Content for Logout section goes here.</p>
   </section>
+</div>
 </div>
 </div>
 {% endblock %}

@@ -30,7 +30,7 @@ def logoutUser(request):
 
 def registerUser(request): 
     form = UserCreationForm()
-    
+
     
     if request.method == 'POST':
 
@@ -95,3 +95,5 @@ def display(request):
      vehicles =Vehicles.objects.all()  
      return render(request, 'display.html',{'vehicles':vehicles})
 
+def services(request):
+     return render(request, 'service.html')
