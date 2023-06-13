@@ -1,4 +1,7 @@
+from django.contrib.auth.models import User
 from django.db import models
+
+
 
 # Create your models here.
 
@@ -15,3 +18,11 @@ class Vehicles(models.Model):
     
 class Display(models.Model):
     vehicles = models.ForeignKey(Vehicles, on_delete=models.CASCADE) 
+
+ 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_pic = models.ImageField(null=True, blank=True,upload_to="images/")
+
+    def __str__(self):
+        return self.user.username

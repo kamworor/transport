@@ -11,5 +11,6 @@ urlpatterns = [
     path('register/', views.registerUser, name='register'),
     path('dashboard/', views.dashboard, name='dashboard'), 
     path('display/', views.display, name='display'), 
+   
     # Add more URL patterns here
 ]+   static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

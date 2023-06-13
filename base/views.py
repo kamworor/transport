@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from .forms import VehiclesForm
-from .models import Display,Vehicles
+from .models import Display,Vehicles,UserProfile
 
 def login_view(request):
     
@@ -34,10 +34,10 @@ def registerUser(request):
     
     if request.method == 'POST':
 
-            form = UserCreationForm(request.POST)
+            form = UserCreationForm(request.POST)   
             if form.is_valid():
                 user = form.save(commit=False) 
-                user.username = user.username.lower()   
+                user.username = user.username.lower()     
                 user.save()
                 login(request, user)
                 return redirect('dashboard')
@@ -59,13 +59,14 @@ def dashboard(request):
                return HttpResponseRedirect('/display') 
      else: 
         form = VehiclesForm()
-        if 'submitted' in request.GET: 
+        if 'submitted' in request.GET:  
              submitted = True
       
      context = {'form':form, 'submitted':submitted}
      return render(request, 'dashboard.html', context)  
 
 def display(request):
-     vehicles =Vehicles.objects.all()  
+     vehicles =Vehicles.objects.all()    
      return render(request, 'display.html',{'vehicles':vehicles})
+
 
