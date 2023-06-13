@@ -26,3 +26,11 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+    
+class Messages(models.Model):
+    name = models.CharField(max_length=200, null=True)
+    email = models.EmailField(null=True)
+    message = models.TextField(null=True)
+
+    def __str__(self):
+        return self.name

@@ -106,9 +106,10 @@ box-sizing: border-box; /* Include padding within the width calculation */
 
 #vehicleInfo {
 
-  overflow-y: scroll;
+  
   max-height: 100px; /* Adjust the max-height value as needed */
-  width:50%;
+  width:100%;
+  
   
 }
 

@@ -16,13 +16,16 @@
 </div>
 <div class="wrapper">
 <div class="content">
-  
+
   <section id="profile" >
     <h2>Profile</h2>
-   
+    <form action="{% url 'display' %}" method="post">
+      {% csrf_token %}
+    
+    
   
   </section>
- 
+
   <section id="vehicle" >
 
     <h2>Vehicle</h2>
@@ -38,7 +41,7 @@
    <input type="submit" value="Save" class="green-button">
     {% endif %}
 
-    {% include 'display.html' %}
+  
 
   </section>
   <section id="new-orders" >

@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from .forms import VehiclesForm
-from .models import Display,Vehicles,UserProfile
+from .forms import VehiclesForm, MessageForm
+from .models import Display,Vehicles,UserProfile,Messages
 
 def login_view(request):
     
@@ -102,5 +102,18 @@ def dashboard(request):
 def display(request):
      vehicles =Vehicles.objects.all()    
      return render(request, 'display.html',{'vehicles':vehicles})
+
+def services(request):
+     return render(request, 'service.html') 
+
+def contact(request):
+     form = MessageForm()
+     if request.method == 'POST': 
+          form = MessageForm(request.POST) 
+          if form.is_valid():
+               form = form.save() 
+          return redirect('home')
+          
+     return render(request, 'contact.html', {'form':form}) 
 
 
