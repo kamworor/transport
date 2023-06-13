@@ -108,12 +108,10 @@ box-sizing: border-box; /* Include padding within the width calculation */
 }
 
 #vehicleInfo {
-  
-  /* Adjust the max-height value as needed */
-  
-  overflow: auto;
-  height: 480px;
-  width: 100%;
+
+  overflow-y: scroll;
+  max-height: 100px; /* Adjust the max-height value as needed */
+  width:50%;
   
 }
 

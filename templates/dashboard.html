@@ -17,13 +17,23 @@
 </div>
 <div class="wrapper">
 <div class="content">
+
   <section id="profile" >
     <h2>Profile</h2>
+<<<<<<< HEAD
     
     {% include 'display.html' %}
 
 
+=======
+    <form action="{% url 'display' %}" method="post">
+      {% csrf_token %}
+    
+    
+  
+>>>>>>> d4b8874df03d6378952aa441cf5de5a541c3f0d6
   </section>
+
   <section id="vehicle" >
 
     <h2>Vehicle</h2>
@@ -39,7 +49,11 @@
    <input type="submit" value="Save" class="green-button">
     {% endif %}
 
+<<<<<<< HEAD
     
+=======
+  
+>>>>>>> d4b8874df03d6378952aa441cf5de5a541c3f0d6
 
   </section>
   <section id="new-orders" >

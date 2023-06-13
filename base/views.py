@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from .forms import VehiclesForm
-from .models import Display,Vehicles
+from .forms import VehiclesForm, MessageForm
+from .models import Display,Vehicles,UserProfile,Messages
 
 def login_view(request):
     
@@ -34,10 +34,10 @@ def registerUser(request):
     
     if request.method == 'POST':
 
-            form = UserCreationForm(request.POST)
+            form = UserCreationForm(request.POST)   
             if form.is_valid():
                 user = form.save(commit=False) 
-                user.username = user.username.lower()   
+                user.username = user.username.lower()     
                 user.save()
                 login(request, user)
                 return redirect('dashboard')
@@ -59,6 +59,13 @@ def dashboard(request):
             return HttpResponseRedirect('/display')
     else:
         form = VehiclesForm()
+<<<<<<< HEAD
+        if 'submitted' in request.GET:  
+             submitted = True
+      
+     context = {'form':form, 'submitted':submitted}
+     return render(request, 'dashboard.html', context)  
+=======
         if 'submitted' in request.GET:
             submitted = True
     
@@ -69,6 +76,7 @@ def dashboard(request):
         'vehicles': vehicles
     }
     return render(request, 'dashboard.html', context)
+>>>>>>> cb2ea92ab4e41852e439ed3e3504b8aa40e4b152
 
 """
 def dashboard(request):
@@ -92,8 +100,24 @@ def dashboard(request):
     }
     return render(request, 'dashboard.html', context)
 def display(request):
-     vehicles =Vehicles.objects.all()  
+     vehicles =Vehicles.objects.all()    
      return render(request, 'display.html',{'vehicles':vehicles})
 
 def services(request):
+<<<<<<< HEAD
      return render(request, 'service.html')
+=======
+     return render(request, 'service.html') 
+
+def contact(request):
+     form = MessageForm()
+     if request.method == 'POST': 
+          form = MessageForm(request.POST) 
+          if form.is_valid():
+               form = form.save() 
+          return redirect('home')
+          
+     return render(request, 'contact.html', {'form':form}) 
+
+
+>>>>>>> d4b8874df03d6378952aa441cf5de5a541c3f0d6
