@@ -48,23 +48,57 @@ def registerUser(request):
 
 def home(request):
     return render(request,'home.html' ) 
-
-def dashboard(request):     
-     submitted = False
-     if request.method == 'POST':
-          form =VehiclesForm(request.POST, request.FILES)
-          if form.is_valid():
-              
-               form.save()
-               return HttpResponseRedirect('/display') 
-     else: 
+"""
+def dashboard(request):
+    submitted = False
+    
+    if request.method == 'POST':
+        form = VehiclesForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/display')
+    else:
         form = VehiclesForm()
+<<<<<<< HEAD
         if 'submitted' in request.GET:  
              submitted = True
       
      context = {'form':form, 'submitted':submitted}
      return render(request, 'dashboard.html', context)  
+=======
+        if 'submitted' in request.GET:
+            submitted = True
+    
+    vehicles = Vehicles.objects.all()
+    context = {
+        'form': form,
+        'submitted': submitted,
+        'vehicles': vehicles
+    }
+    return render(request, 'dashboard.html', context)
+>>>>>>> cb2ea92ab4e41852e439ed3e3504b8aa40e4b152
 
+"""
+def dashboard(request):
+    submitted = False
+    
+    if request.method == 'POST':
+        form = VehiclesForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/display')
+    else:
+        form = VehiclesForm()
+        if 'submitted' in request.GET:
+            submitted = True
+    
+    vehicles = Vehicles.objects.all()
+    context = {
+        'form': form,
+        'submitted': submitted,
+        'vehicles': vehicles
+    }
+    return render(request, 'dashboard.html', context)
 def display(request):
      vehicles =Vehicles.objects.all()    
      return render(request, 'display.html',{'vehicles':vehicles})
