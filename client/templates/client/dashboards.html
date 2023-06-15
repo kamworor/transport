@@ -1,0 +1,78 @@
+
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<script src="{% static 'js/script.js' %}"></script>
+<div class="grid">
+<div class="sidebar">
+  <div class="logo">
+    <h1>Dashboard</h1>
+  </div>
+  <ul class="menu">
+   <li><a href="#profile" class="active"><i class="fas fa-user"></i> Profile</a></li>
+   <li><a href="#vehicle"><i class="fas fa-car"></i> Make Order</a></li>
+  </ul>
+</div>
+<div class="wrapper">
+<div class="content">
+
+  <section id="profile" >
+    <h2>Booked Vehicle</h2>
+ 
+
+    
+  
+  </section>
+
+  <section id="vehicle" >
+
+    <div id="vehicleInfo">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Details</th>
+                <th>Number Plate</th>
+                <th>Photo</th>
+                <th>Status</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                   
+                     <p>No image available</p>
+                </td>
+                <td>
+                  
+                </td>
+                <td><input type="checkbox" name="item1"></td>
+            </tr>
+        
+       </tbody>
+    </table>
+  </div>
+   <input type="submit" value="Save" class="green-button">
+   <input type="submit" value="Delete" class="green-button">
+    
+
+  </section>
+  <section id="new-orders" >
+    <h2>New Orders</h2>
+    <p>Content for New Orders section goes here.</p>
+  </section>
+  <section id="history" >
+    <h2>History</h2>
+    <p>Content for History section goes here.</p>
+  </section>
+  <section id="logout" >
+    <h2>Logout</h2>
+    <p>Content for Logout section goes here.</p>
+  </section>
+</div>
+</div>
+</div>
+{% endblock %}

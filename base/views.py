@@ -56,7 +56,7 @@ def dashboard(request):
         form = VehiclesForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/display')
+            return HttpResponseRedirect('/base/display')
     else:
         form = VehiclesForm()
         if 'submitted' in request.GET:
@@ -83,7 +83,7 @@ def contact(request):
           form = MessageForm(request.POST) 
           if form.is_valid():
                form = form.save() 
-          return redirect('home')
+          return redirect('base/home')
           
      return render(request, 'base/contact.html', {'form':form}) 
 
