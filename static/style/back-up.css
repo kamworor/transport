@@ -156,20 +156,20 @@ td{
 }
   
 
-  .content {
+  
+    
+  /*.wrapper{     
+    width: 70%;
+    } */   
+    
+  
+    .content {
       margin-top: 0;
       margin-left: 200px; /* Adjust this value to match the width of the sidebar */
       padding: 20px;
       background-color: #fff;
       height: calc(100vh - 20px); /* Adjust this value based on the desired height and padding */
     }
-    
-  /*.wrapper{     
-    width: 70%;
-    } */   
-    
-    
-    
     
     
     
