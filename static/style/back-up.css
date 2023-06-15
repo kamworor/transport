@@ -109,9 +109,9 @@ box-sizing: border-box; /* Include padding within the width calculation */
 
 #vehicleInfo {
 
-  overflow-y: scroll;
-  max-height: 100px; /* Adjust the max-height value as needed */
-  width:50%;
+  overflow:auto;
+  height:450px; /* Adjust the max-height value as needed */
+  width:100%;
   
 }
 
@@ -141,6 +141,9 @@ td{
 }
 .green-button {
   background-color: green;
+  left:500px;
+  
+
 
 
 }

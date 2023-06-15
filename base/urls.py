@@ -11,12 +11,11 @@ urlpatterns = [
     path('register/', views.registerUser, name='register'),
     path('dashboard/', views.dashboard, name='dashboard'), 
     path('display/', views.display, name='display'), 
-<<<<<<< HEAD
-    path('services/', views.services, name='service'), 
-=======
+
+
     path('service/', views.services, name='service'), 
     path('contact/', views.contact, name='contact'), 
    
->>>>>>> d4b8874df03d6378952aa441cf5de5a541c3f0d6
+
     # Add more URL patterns here
 ]+   static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
