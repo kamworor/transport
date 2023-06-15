@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <script src="{% static 'js/script.js' %}"></script>
+<div class="grid">
 <div class="sidebar">
   <div class="logo">
     <h1>Dashboard</h1>
@@ -19,12 +20,8 @@
 
   <section id="profile" >
     <h2>Profile</h2>
-    <form action="{% url 'display' %}" method="post">
-      {% csrf_token %}
-      {% for i in display  %}
-    {{i.vehicles }}
-
-    {% endfor %}
+ 
+    
     
   
   </section>
@@ -44,7 +41,7 @@
    <input type="submit" value="Save" class="green-button">
     {% endif %}
 
-  
+    
 
   </section>
   <section id="new-orders" >
@@ -59,6 +56,7 @@
     <h2>Logout</h2>
     <p>Content for Logout section goes here.</p>
   </section>
+</div>
 </div>
 </div>
 {% endblock %}
