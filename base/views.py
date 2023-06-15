@@ -47,7 +47,7 @@ def registerUser(request):
     return render(request, 'register.html', {'form':form}) 
 
 def home(request):
-    return render(request,'home.html' ) 
+    return render(request,'base/home.html' ) 
 
 def dashboard(request):
     submitted = False
@@ -71,7 +71,7 @@ def dashboard(request):
     return render(request, 'dashboard.html', context)  
 def display(request):
      display = Vehicles.objects.all()
-
+ 
      return render(request, 'display.html',{'display':display})
 
 def services(request):
