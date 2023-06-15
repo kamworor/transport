@@ -7,8 +7,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name="home"),
 <<<<<<< HEAD
-    path('anything/', views.client, name="client"),
-    path('dashboardc/', views.clientdash, name="clientdash"),
+   
 =======
     path('dashboards/', views.dashboards, name="dashboards"),
 >>>>>>> faa62a0cc9a7c634875957f35fdd02b2fbcb60e1
