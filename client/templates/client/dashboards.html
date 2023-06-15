@@ -1,3 +1,4 @@
+
 {% extends 'main.html' %}
 {% load static %}
 {% block content %}
@@ -9,38 +10,53 @@
   </div>
   <ul class="menu">
    <li><a href="#profile" class="active"><i class="fas fa-user"></i> Profile</a></li>
-   <li><a href="#vehicle"><i class="fas fa-car"></i> Vehicle</a></li>
-   <li><a href="#new-orders"><i class="fas fa-clipboard"></i> New Orders</a></li>
-   <li><a href="#history"><i class="fas fa-history"></i> History</a></li>
-   <li><a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+   <li><a href="#vehicle"><i class="fas fa-car"></i> Make Order</a></li>
   </ul>
 </div>
 <div class="wrapper">
 <div class="content">
 
   <section id="profile" >
-    <h2>Profile</h2>
+    <h2>Booked Vehicle</h2>
  
-    {% include 'base/display.html' %}
+
     
   
   </section>
 
   <section id="vehicle" >
 
-    <h2>Vehicle</h2>
-     {% if submitted %}
-     Your booking was submitted succesfully!!! 
+    <div id="vehicleInfo">
 
-     {% else %}
-
-    
-    <form id="vehicleForm" action="{% url 'dashboard' %}" method="POST" enctype="multipart/form-data">
-      {% csrf_token %} 
-   {{form.as_p}}
+    <table>
+        <thead>
+            <tr>
+                <th>Details</th>
+                <th>Number Plate</th>
+                <th>Photo</th>
+                <th>Status</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                   
+                     <p>No image available</p>
+                </td>
+                <td>
+                  
+                </td>
+                <td><input type="checkbox" name="item1"></td>
+            </tr>
+        
+       </tbody>
+    </table>
+  </div>
    <input type="submit" value="Save" class="green-button">
-    {% endif %}
-
+   <input type="submit" value="Delete" class="green-button">
     
 
   </section>
