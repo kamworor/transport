@@ -9,7 +9,6 @@
 }
 
 
-
 .menu {
   list-style-type: none;
   padding: 0;
@@ -36,7 +35,7 @@
     padding: 20px;
     background-color: #fff;
     height: 100vh;
-    width: 80vh;
+    width: 150vh;
     top:0;
 
   }
@@ -50,6 +49,7 @@
   section{
     height: 100vh;
     padding :30px;
+  
   }
   #profile{
     background-color: light blue;
@@ -91,9 +91,10 @@
 }
 #vehicleForm input[type="text"],
 #vehicleForm input[type="file"] {
-width: 100%; /* Adjust this width value to your preference */
+width: 50%; /* Adjust this width value to your preference */
 padding: 10px;
 margin-bottom: 10px;
+margin-left: 10px;
 box-sizing: border-box; /* Include padding within the width calculation */
 }
 #vehicleForm input[type="submit"] {
@@ -102,14 +103,15 @@ box-sizing: border-box; /* Include padding within the width calculation */
   color: #fff;
   border: none;
   cursor: pointer;
+  
+
 }
 
 #vehicleInfo {
 
-  
-  max-height: 100px; /* Adjust the max-height value as needed */
+  overflow:auto;
+  height:450px; /* Adjust the max-height value as needed */
   width:100%;
-  
   
 }
 
@@ -139,7 +141,11 @@ td{
 }
 .green-button {
   background-color: green;
+  left:500px;
   
+
+
+
 }
 
 .content {
@@ -148,8 +154,6 @@ td{
   background-color: #fff;
   
 }
-
-
   
 
   .content {
@@ -160,7 +164,13 @@ td{
       height: calc(100vh - 20px); /* Adjust this value based on the desired height and padding */
     }
     
-    .wrapper{
-      width: 70%;
-    }    
-      
+  /*.wrapper{     
+    width: 70%;
+    } */   
+    
+    
+    
+    
+    
+    
+    
