@@ -12,7 +12,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 def home(request):
     return render(request,'client/home.html' ) 
 
-def client(request):
-    return render(request,'client/anything.html')
+def dashboards(request):
+    return render(request,'client/dashboards.html')
 
  

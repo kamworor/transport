@@ -22,11 +22,11 @@ def login_view(request):
                 return redirect('login')
 
     context = {}
-    return render(request, 'login.html', context)  
+    return render(request, 'base/login.html', context)  
 
 def logoutUser(request):
     logout(request)
-    return render(request, 'home.html')
+    return render(request, 'base/home.html')
 
 def registerUser(request): 
     form = UserCreationForm()
@@ -44,7 +44,7 @@ def registerUser(request):
             else:
                messages.error(request, 'An error occured during registration')
    
-    return render(request, 'register.html', {'form':form}) 
+    return render(request, 'base/register.html', {'form':form}) 
 
 def home(request):
     return render(request,'base/home.html' ) 
@@ -56,7 +56,7 @@ def dashboard(request):
         form = VehiclesForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/display')
+            return HttpResponseRedirect('/base/display')
     else:
         form = VehiclesForm()
         if 'submitted' in request.GET:
@@ -68,14 +68,14 @@ def dashboard(request):
         'submitted': submitted, 
         'vehicles': vehicles
     }
-    return render(request, 'dashboard.html', context)  
+    return render(request, 'base/dashboard.html', context)  
 def display(request):
      display = Vehicles.objects.all()
  
-     return render(request, 'display.html',{'display':display})
+     return render(request, 'base/display.html',{'display':display})
 
 def services(request):
-     return render(request, 'service.html') 
+     return render(request, 'base/service.html') 
  
 def contact(request):
      form = MessageForm()
@@ -83,8 +83,8 @@ def contact(request):
           form = MessageForm(request.POST) 
           if form.is_valid():
                form = form.save() 
-          return redirect('home')
+          return redirect('base/home')
           
-     return render(request, 'contact.html', {'form':form}) 
+     return render(request, 'base/contact.html', {'form':form}) 
 
 
