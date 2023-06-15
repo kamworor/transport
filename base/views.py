@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from .forms import VehiclesForm, MessageForm
+from .forms import VehiclesForm, MessageForm, DisplayForm
 from .models import Display,Vehicles,UserProfile,Messages
 
 def login_view(request):
@@ -22,7 +22,7 @@ def login_view(request):
                 return redirect('login')
 
     context = {}
-    return render(request, 'login.html', context) 
+    return render(request, 'login.html', context)  
 
 def logoutUser(request):
     logout(request)
@@ -48,37 +48,7 @@ def registerUser(request):
 
 def home(request):
     return render(request,'home.html' ) 
-"""
-def dashboard(request):
-    submitted = False
-    
-    if request.method == 'POST':
-        form = VehiclesForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/display')
-    else:
-        form = VehiclesForm()
-<<<<<<< HEAD
-        if 'submitted' in request.GET:  
-             submitted = True
-      
-     context = {'form':form, 'submitted':submitted}
-     return render(request, 'dashboard.html', context)  
-=======
-        if 'submitted' in request.GET:
-            submitted = True
-    
-    vehicles = Vehicles.objects.all()
-    context = {
-        'form': form,
-        'submitted': submitted,
-        'vehicles': vehicles
-    }
-    return render(request, 'dashboard.html', context)
->>>>>>> cb2ea92ab4e41852e439ed3e3504b8aa40e4b152
 
-"""
 def dashboard(request):
     submitted = False
     
@@ -92,20 +62,21 @@ def dashboard(request):
         if 'submitted' in request.GET:
             submitted = True
     
-    vehicles = Vehicles.objects.all()
+    vehicles = Vehicles.objects.all() 
     context = {
         'form': form,
-        'submitted': submitted,
+        'submitted': submitted, 
         'vehicles': vehicles
     }
-    return render(request, 'dashboard.html', context)
+    return render(request, 'dashboard.html', context)  
 def display(request):
-     vehicles =Vehicles.objects.all()    
-     return render(request, 'display.html',{'vehicles':vehicles})
+     display = Vehicles.objects.all()
+
+     return render(request, 'display.html',{'display':display})
 
 def services(request):
      return render(request, 'service.html') 
-
+ 
 def contact(request):
      form = MessageForm()
      if request.method == 'POST': 

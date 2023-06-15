@@ -21,7 +21,10 @@
     <h2>Profile</h2>
     <form action="{% url 'display' %}" method="post">
       {% csrf_token %}
-    
+      {% for i in display  %}
+    {{i.vehicles }}
+
+    {% endfor %}
     
   
   </section>
