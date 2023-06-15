@@ -15,4 +15,7 @@ def home(request):
 def client(request):
     return render(request,'client/anything.html')
 
+def clientdash(request):
+    return render(request,'client/dashboardc.html')
+
  
