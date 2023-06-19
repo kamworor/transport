@@ -1,7 +1,7 @@
 /* Styling for the login container */
 .login-container {
     width: 300px;
-    margin: 0 auto;
+    margin: 20 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -42,3 +42,5 @@
   .login-container input[type="submit"]:hover {
     background-color: #45a049;
   }
+
+  
