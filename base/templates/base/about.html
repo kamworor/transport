@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'style/about.css' %}">
+<div class="section2">
+    <div class="container">
+      <div class="content-section">
+        <div class="title">
+          <h1>About US</h1>
+        </div>
+  
+        <div class="content">
+          <h3>Welome to TMS</h3>
+          <p>
+            "Welcome to our relocation services, where we make moving a breeze! We understand that relocating can be a daunting task, but with our expertise and dedicated team, your move will be smooth and stress-free. Whether you're moving locally or internationally, we've got you covered.
+
+            Our comprehensive range of relocation services includes packing and unpacking, transportation, logistics, and even assistance with finding a new home. We prioritize the safety and security of your belongings, ensuring they reach their destination in pristine condition.
+            
+            With years of experience in the industry, we have built a reputation for providing personalized and efficient relocation solutions."
+          </p>
+          <div class="button">
+            <a href="">Read More</a>
+          </div>
+          <div class="image-section">
+            <img src="{% static 'images/office.jpg' %}" alt="Example Image">
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+{% endblock %}

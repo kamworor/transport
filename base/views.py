@@ -76,6 +76,9 @@ def display(request):
 
 def services(request):
      return render(request, 'base/service.html') 
+
+def about(request):
+     return render(request, 'base/about.html') 
  
 def contact(request):
      form = MessageForm()

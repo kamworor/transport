@@ -1,8 +1,9 @@
 
 {% extends 'main.html' %}
 {% load static %}
+
 {% block content %}
-<script src="{% static 'js/script.js' %}"></script>
+
 
 <div class="sidebar">
   <div class="logo">
@@ -19,46 +20,46 @@
   <section id="profile" >
     <h2>Booked Vehicle</h2>
  
-
-    
   
   </section>
 
-  <section id="vehicle" >
-
+  <section id="vehicle">
     <div id="vehicleInfo">
-
-    <table>
+      <table>
         <thead>
-            <tr>
-                <th>Details</th>
-                <th>Number Plate</th>
-                <th>Photo</th>
-                <th>Status</th>
-                <th>Select</th>
-            </tr>
+          <tr>
+            <th>Details</th>
+            <th>Number Plate</th>
+            <th>Photo</th>
+            <th>Status</th>
+            <th>Select</th>
+          </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>
-                   
-                     <p>No image available</p>
-                </td>
-                <td>
-                  
-                </td>
-                <td><input type="checkbox" name="item1"></td>
-            </tr>
-        
-       </tbody>
-    </table>
-  </div>
-   <input type="submit" value="Save" class="green-button">
-   <input type="submit" value="Delete" class="green-button">
-    
-
+          {% for vehicle in vehicles %}
+          <tr>
+            <td>{{ vehicle.vehicleType }}</td>
+            <td>{{ vehicle.numberPlate }}</td>
+            <td>
+              {% if vehicle.vehicle_image %}
+              <img src="{{ vehicle.vehicle_image.ul }}" width="200">
+              {% endif %}
+            </td>
+            <td>
+              {% if vehicle.status == 'Booked' %}
+              <p>Booked</p>
+              {% else %}
+              <p>Available</p>
+              {% endif %}
+            </td>
+            <td><input type="checkbox" name="item1"></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <input type="submit" value="Save" class="green-button">
+    <input type="submit" value="Delete" class="green-button">
   </section>
  
 </div>
