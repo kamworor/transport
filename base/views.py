@@ -71,8 +71,13 @@ def dashboard(request):
     return render(request, 'base/dashboard.html', context)  
 def display(request):
      display = Vehicles.objects.all()
+
+     booked =Vehicles.filter(status='Booked').count
+     available =Vehicles.filter(status='Available').count
+
+     context = {'display':display,'booked':booked, ' available':available}
  
-     return render(request, 'base/display.html',{'display':display})
+     return render(request, 'base/display.html',context)
 
 def services(request):
      return render(request, 'base/service.html') 

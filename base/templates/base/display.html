@@ -25,10 +25,10 @@
                     {% endif %}
                 </td>
                 <td>
-                    {% if vehicle.is_booked %}
-                         Booked
+                    {% if vehicle.status == 'Booked' %}
+                         <p>Booked</p>
                          {% else %}
-                         Not Booked
+                         <p>Available</p>
                          {% endif %}
                 </td>
             </tr>

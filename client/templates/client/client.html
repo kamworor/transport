@@ -1,0 +1,66 @@
+
+{% load static %}
+{% block content %}
+
+
+
+<div class="row">
+<div class="col-md">
+    <div class="card card-body">
+        <h5>Contact Information</h5>
+        <hr>
+        <p>Name:{{user.username}}</p>
+        <p>Email:{{user.email}}</p>
+
+    </div>
+</div>
+
+<div class="col-md">
+    <div class="card card-body">
+        <h5>Total orders</h5>
+        <hr>
+        <h1 style="text-align: center;padding: 10px;"></h1>
+       
+    </div>
+</div>
+</div>
+
+<form action="">
+<table>
+    <thead>
+        <tr>
+            <th>Details</th>
+            <th>Number Plate</th>
+            <th>Photo</th>
+            <th>Status</th>
+            <th>Cancel</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for order in orders  %}
+        <tr>
+            <td>{{order.vehicles.vehicleType }}</td>
+            <td>{{order.vehicles.numberPlate}}</td>
+            <td> {% if order.vehicles.vehicle_image %}
+              <img src={{order.vehicles.vehicle_image.url}} width="200">
+              {% endif %} 
+            </td>
+            <td>{{order.status}}</td>
+            <td><a class="btn btn-sm btn-danger" href="">Cancel</a></td>
+        </tr>
+        {%  endfor %}
+    
+   </tbody>
+</table>
+<br>
+</form>
+
+
+
+
+
+
+
+
+
+{% endblock %}

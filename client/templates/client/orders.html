@@ -1,0 +1,59 @@
+{% load static %}
+
+
+{% block content %}
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Details</th>
+            <th>Number Plate</th>
+            <th>Photo</th>
+            <th>Status</th>
+            <th>Select</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for order in selected_vehicles %}
+          <tr>
+            <td>{{order.vehicleType }}</td>
+            <td>{{order.client}}</td>
+            <td> {% if order.vehicles.vehicle_image %}
+              <img src={{order.vehicle.vehicle_image.url}} width="200">
+              {% endif %} 
+            </td>
+           
+            <td>
+              {% if oder.status == 'Booked' %}
+              <p>Booked</p>
+              {% else %}
+              <p>Available</p>
+              {% endif %} 
+            </td>
+            <td><input type="checkbox" name="item1"></td>
+        </tr>
+      
+        {%  endfor %}
+    
+   </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

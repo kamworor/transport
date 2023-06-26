@@ -2,15 +2,21 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from base.models import Vehicles
+from .views import display_vehicles
 from . import views
+
+
+
 
 urlpatterns = [
     path('', views.home, name="home"),
-<<<<<<< HEAD
-   
-=======
     path('dashboards/', views.dashboards, name="dashboards"),
->>>>>>> faa62a0cc9a7c634875957f35fdd02b2fbcb60e1
+    path('client/<str:pk>/', views.client, name="client"),
+    #path('client/orders/', views.orders, name="orders"),
+    path('client/orders/', views.display_vehicles, name="orders"),
+   
+
     #path('login/', views.login_view, name='login'), 
     #path('logout/', views.logoutUser, name='logout'), 
     #path('register/', views.registerUser, name='register'),

@@ -7,12 +7,16 @@ from django.db import models
 # Create your models here.
 
 class Vehicles(models.Model):
+    STATUS = (
+        ('Booked','Booked'),
+        ('Available','Available'),
+    )
     numberPlate = models.CharField(max_length=200, null=True)
     vehicleType = models.CharField(max_length=200, null=True)
     updated = models.DateTimeField(auto_now=True,null=True) 
     created = models.DateTimeField(auto_now_add=True, null=True)
     vehicle_image = models.ImageField(null=True, blank=True, upload_to="images/")
-    status = models.BooleanField(default=False, null=True) 
+    status = models.CharField(max_length=200, null=True,  choices=STATUS) 
 
     def __str__(self):
         return str(self.numberPlate)
