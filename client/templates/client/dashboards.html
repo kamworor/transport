@@ -20,6 +20,7 @@
 
   <section id="profile" >
     <h2>Booked Vehicle</h2>
+    {% include 'client/orders.html' %}
  
 
     
@@ -28,33 +29,10 @@
 
   <section id="vehicle">
     <div id="vehicleInfo">
+      <h2>Vehicles</h2>
+      {% include 'client/vehicle.html' %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Details</th>
-                <th>Number Plate</th>
-                <th>Photo</th>
-                <th>Status</th>
-                <th>Select</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>
-                   
-                     <p>No image available</p>
-                </td>
-                <td>
-                  
-                </td>
-                <td><input type="checkbox" name="item1"></td>
-            </tr>
-        
-       </tbody>
-    </table>
+   
   </div>
    <input type="submit" value="Save" class="green-button">
    <input type="submit" value="Delete" class="green-button">

@@ -35,12 +35,12 @@ INSTALLED_APPS = [
 
     'base.apps.BaseConfig',
     'client.apps.ClientConfig',
-<<<<<<< HEAD
+
      
    
-=======
+
     
->>>>>>> 229cae214adfbe100df0ddb62c0a60326a3ba450
+
 ]
 
 MIDDLEWARE = [
