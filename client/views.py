@@ -17,8 +17,10 @@ def home(request):
 
 def dashboards(request):
     vehicles = Vehicles.objects.all() 
+    selected_vehicles = Order.objects.all()
+    print(selected_vehicles)
     
-    context ={'vehicles':vehicles}
+    context ={'vehicles':vehicles,'selected_vehicles':selected_vehicles}
    
     
     return render(request,'client/dashboards.html',context)
@@ -28,7 +30,8 @@ def dashboards(request):
 
  
 def display_vehicles(request):
-    selected_vehicles = request.POST.getlist('selected_vehicles')
+    
+    selected_vehicles = Order.objects.filter(vehicles__name='vehicles')
   
 
     context = { 'selected_vehicles':selected_vehicles}
