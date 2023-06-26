@@ -32,10 +32,14 @@
       </div>
       <div class="contactForm">
         <h2>Send Message</h2>
-        <form action="{% url 'contact' %}" method="POST">
+        <form action="{% url 'contact' %}" method="POST" class="contact-form">
           {% csrf_token %}
-            {{form.as_p}}
-          <button type="submit">Submit</button>
+          
+          <div class="form-group">
+            {{ form.as_p }}
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>

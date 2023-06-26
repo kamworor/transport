@@ -2,8 +2,8 @@
 {% extends 'main.html' %}
 
 {% load static %}
-{% block content %}
 
+{% block content %}
 <script src="{% static 'js/script.js' %}"></script>
 <div class="grid">
 <div class="sidebar">
@@ -20,40 +20,60 @@
 
   <section id="profile" >
     <h2>Booked Vehicle</h2>
-   <div id="ClientInfo">
-    
-    {% include 'client/orders.html' %}
-
  
-</div>
-
-
-   
 
     
   
   </section>
 
-  <section id="vehicle" >
-
+  <section id="vehicle">
     <div id="vehicleInfo">
-      <form action="{% url 'dashboards' %}" method="POST"  enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form}}
-     
-        {% include 'client/vehicle.html' %}
 
+    <table>
+        <thead>
+            <tr>
+                <th>Details</th>
+                <th>Number Plate</th>
+                <th>Photo</th>
+                <th>Status</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                   
+                     <p>No image available</p>
+                </td>
+                <td>
+                  
+                </td>
+                <td><input type="checkbox" name="item1"></td>
+            </tr>
         
-        <input type="submit" value="Save" class="green-button">
-       
-    </form>
+       </tbody>
+    </table>
   </div>
-  
-
-
+   <input type="submit" value="Save" class="green-button">
+   <input type="submit" value="Delete" class="green-button">
     
 
   </section>
-  </div>
+  <section id="new-orders" >
+    <h2>New Orders</h2>
+    <p>Content for New Orders section goes here.</p>
+  </section>
+  <section id="history" >
+    <h2>History</h2>
+    <p>Content for History section goes here.</p>
+  </section>
+  <section id="logout" >
+    <h2>Logout</h2>
+    <p>Content for Logout section goes here.</p>
+  </section>
+</div>
+</div>
 </div>
 {% endblock %}

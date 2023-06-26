@@ -5,7 +5,7 @@
 }
 .contact-4{
   position:relative;
-  padding: 10px 10px;
+  padding: 1px 10px;
   height:100%;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,7 @@
   
 }
 .contact-4 .content-1{
-  max-width: 800x;
+  max-width: 120x;
   text-align:center;
 
 }
@@ -30,7 +30,7 @@
 
 }
 .container {
-width:100%;
+width:150%;
 display:flex;
 justify-content: center;
 align-items:center;
@@ -71,7 +71,7 @@ margin-top: 50px;
   font-weight: 500;
   color:blue;
  }
- .contactForm{
+ /*.contactForm{
   width: 40px;
   padding:40px
   
@@ -93,7 +93,7 @@ margin-top: 50px;
  .contactForm .inputBox input,
  .contactForm .inputBox textarea{
   
-  width:100%;
+  width:500px;
   padding: 5px 0;
   font-size:16px;
   margin: 10px 0;
@@ -101,6 +101,65 @@ margin-top: 50px;
   border-bottom: 2px solid #333;
   outline: none;
 
-  
- 
+}
+*/
+.contact-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+.contact-form textarea {
+  height: 150px;
+}
+
+.contact-form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #337ab7;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-form button[type="submit"]:hover {
+  background-color: #286090;
+}
+
+.contact-form button[type="submit"]:focus {
+  outline: none;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.contactInfo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 200px; /* Add margin-right to create space */
+}
+
+.contactForm {
+  width: 50%;
+  padding: 40px;
 }

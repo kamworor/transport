@@ -207,23 +207,26 @@ main{
    top: 0;
    left: 0;
    width: 100%;
-   height: 60%;
+   height: 100vh;
+   
    
  }
  
  .image-container img {
-   max-width: 100%;
-   max-height: 100%;
+   width: 100%;
+   height: 100%;
    
  }
 
- div.change {
+ /*div.change {
    width: 300px;
    margin: 0 auto;
+   border-radius: 20px;
+   border-color: blue;
    
  }
  
- /* Styling for the form fields */
+ /* Styling for the form fields 
  div.change input[type="text"],
  div.change input[type="email"],
  div.change input[type="password"] {
@@ -232,9 +235,9 @@ main{
    margin-bottom: 10px;
  }
  
- /* Styling for the submit button */
+ Styling for the submit button */
  
- /* Styling for the submit button on hover */
+ /* Styling for the submit button on hover *
  div.change input[type="submit"]:hover {
    background-color: darkorange;
  }
@@ -247,4 +250,42 @@ main{
    border-radius: 4px;
    cursor: pointer;
  }
+ */
+ .registration-form {
+   max-width: 400px;
+   margin: 0 auto;
+ }
  
+ .registration-form .form-group {
+   margin-bottom: 20px;
+ }
+ 
+ .registration-form label {
+   display: block;
+   font-weight: bold;
+ }
+ 
+ .registration-form input[type="text"],
+ .registration-form input[type="email"],
+ .registration-form input[type="password"] {
+   width: 100%;
+   padding: 10px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+ }
+ 
+ .registration-form input[type="submit"] {
+   padding: 10px 20px;
+   background-color: #337ab7;
+   color: #fff;
+   border: none;
+   cursor: pointer;
+ }
+ 
+ .registration-form input[type="submit"]:hover {
+   background-color: #286090;
+ }
+ 
+ .registration-form input[type="submit"]:focus {
+   outline: none;
+ }
