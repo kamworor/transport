@@ -3,43 +3,85 @@
 
 {% block content %}
 
-
-
-<table>
-    <thead>
+<div class="row">
+  <div class="col-md-5">
+    <h5>CLIENTS:</h5>
+    <hr>
+    <div class="card card-body">
+      <a class="btn btn-primary btn-sm btn-block" href="">Client</a>
+      <table class="table table-sm">
+        <thead>
         <tr>
-            <th>Details</th>
-            <th>Number Plate</th>
-            <th>Photo</th>
-            <th>Status</th>
-            <th>Select</th>
+          <th>Customer</th>
+          <th>Email</th>
         </tr>
-    </thead>
-    <tbody>
-      {% for order in selected_vehicles %}
-          <tr>
-            <td>{{order.vehicles.vehicleType }}</td>
-            <td>{{order.vehicles.numberPlate}}</td>
-            <td> {% if order.vehicles.vehicle_image %}
-              <img src={{order.vehicles.vehicle_image.url}} width="200">
-              {% endif %} 
-            </td>
-           
-            <td>
-              {% if order.status == 'Booked' %}
-              <p>Booked</p>
-              {% else %}
-              <p>Available</p>
-              {% endif %} 
-            </td>
-            <td><input type="checkbox" name="item1"></td>
+      </thead>
+      <tbody>
+        {%  for client in client.order_set.all %}
+        <tr>
+          <td>{{client.name}}</td>
+          <td>{{client.email}}</td>
         </tr>
-      
-        {%  endfor %}
-    
-   </tbody>
-</table>
+          {% endfor %}
+        </tbody>
+      </table>
 
+    </div>
+
+  </div>
+
+
+
+
+<div class="col-md-7">
+  <h5>LAST 5 ORDERS:</h5>
+  <hr>
+  <div class="card card-body">
+    <a class="btn btn-primary btn-sm btn-block" href="">Orders</a>
+      <table class="table table-sm">
+          <thead>
+              <tr>
+                  <th>Details</th>
+                  <th>Number Plate</th>
+                  <th>Photo</th>
+                  <th>Status</th>
+                  <th>Cancel</th>
+              </tr>
+          </thead>
+          <tbody>
+            {% for order in client.order_set.all %}
+                <tr>
+                  <td>{{order.vehicles.vehicleType }}</td>
+                  <td>{{order.vehicles.numberPlate}}</td>
+                  <td> {% if order.vehicles.vehicle_image %}
+                    <img src={{order.vehicles.vehicle_image.url}} width="200">
+                    {% endif %} 
+                  </td>
+                
+                  <td>
+                    {% if order.status == 'Booked' %}
+                    <p>Booked</p>
+                    {% else %}
+                    <p>Available</p>
+                    {% endif %} 
+                  </td>
+                  <td>
+                    <a class="btn btn-small btn-danger" href="">Delete</a>
+                  </td>
+
+                    
+                
+              </tr>
+            
+              {%  endfor %}
+          
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
 
 
 

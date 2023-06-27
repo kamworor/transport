@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="grid">
+  <div class="sidebar">
+    <div class="logo">
+      <h1>Dashboard</h1>
+    </div>
+    <ul class="menu">
+      <li><a href="#profile" class="active"><i class="fas fa-user"></i> Profile</a></li>
+      <li><a href="#vehicle"><i class="fas fa-car"></i> Make Order</a></li>
+    </ul>
+  </div>
+  <div class="wrapper">
+    <div class="content">
+      <h2>Save Vehicles</h2>
+      <form method="POST" action="{% url 'save_vehicle' %}">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Save" class="green-button">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

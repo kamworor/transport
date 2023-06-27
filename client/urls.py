@@ -3,7 +3,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from base.models import Vehicles
-from .views import display_vehicles
 from . import views
 
 
@@ -13,8 +12,9 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('dashboards/', views.dashboards, name="dashboards"),
     path('client/<str:pk>/', views.client, name="client"),
+   path('save_vehicle/', views.orders, name='save_vehicle'),
     #path('client/orders/', views.orders, name="orders"),
-    path('client/orders/', views.display_vehicles, name="orders"),
+    path('client/orders/', views.orders, name="orders"),
    
 
     #path('login/', views.login_view, name='login'), 
