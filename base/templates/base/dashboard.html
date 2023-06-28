@@ -11,8 +11,7 @@
    <li><a href="#profile" class="active"><i class="fas fa-user"></i> Profile</a></li>
    <li><a href="#vehicle"><i class="fas fa-car"></i> Vehicle</a></li>
    <li><a href="#new-orders"><i class="fas fa-clipboard"></i> New Orders</a></li>
-   <li><a href="#history"><i class="fas fa-history"></i> History</a></li>
-   <li><a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+  
   </ul>
 </div>
 <div class="wrapper">
@@ -66,17 +65,12 @@
   </section>
   <section id="new-orders" >
     <h2>New Orders</h2>
-    <p>Content for New Orders section goes here.</p>
+    {% include 'base/active_orders.html' with orders=selected_orders %}
   </section>
-  <section id="history" >
-    <h2>History</h2>
-    <p>Content for History section goes here.</p>
-  </section>
-  <section id="logout" >
-    <h2>Logout</h2>
-    <p>Content for Logout section goes here.</p>
-  </section>
+
+
 </div>
 </div>
 </div>
+
 {% endblock %}

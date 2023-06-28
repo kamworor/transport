@@ -17,7 +17,8 @@ def home(request):
     return render(request,'client/home.html' )  
 
 def dashboards(request):
-    vehicles = Vehicles.objects.all()
+    vehicles = Vehicles.objects.filter(selected=False)
+    orders = Order.objects.filter(status='Available')
     try:    
       
         client = get_object_or_404(Client, user=request.user) 
@@ -29,6 +30,7 @@ def dashboards(request):
 
 
     context ={'vehicles':vehicles,
+              'orders':orders,
               'selected_vehicles':selected_vehicles,
               'client':client} 
     return render(request, 'client/dashboards.html', context) 
@@ -39,10 +41,13 @@ def orders(request):
        selected_vehicle_ids = request.POST.getlist('boxes')
        client = Client.objects.get(user=request.user)
        # Clear existing orders and create new ones for selected vehicles
-       client.order_set.all().delete()
+       client.order_set.all()
+       Vehicles.objects.filter(id__in=selected_vehicle_ids).update(selected=True)
+
+         # Create new orders for selected vehicles
        for vehicle_id in selected_vehicle_ids:
             vehicle = Vehicles.objects.get(id=vehicle_id)
-            Order.objects.create(client=client, vehicles=vehicle, status='Booked')
+            Order.objects.create(client=client, vehicles=vehicle, status='Booked') 
         
        return redirect('dashboards')
     else:
