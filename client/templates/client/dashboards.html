@@ -19,22 +19,28 @@
 <div class="content">
 
   <section id="profile" >
+   
+     
     <h2>Booked Vehicle</h2>
     {% include 'client/orders.html' %}
  
 
     
-  
+
   </section>
 
   <section id="vehicle">
     <div id="vehicleInfo">
       <h2>Vehicles</h2>
+      <form method="POST" action="{% url 'save_vehicle' %}">
+        {% csrf_token %}
+        {{form}}
       {% include 'client/vehicle.html' %}
-
-   
-  </div>
+    
    <input type="submit" value="Save" class="green-button">
+  </form>
+</div>
+   
     
 
   </section>

@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
@@ -16,28 +17,41 @@ def home(request):
     return render(request,'client/home.html' )  
 
 def dashboards(request):
-    vehicles = Vehicles.objects.all() 
-    selected_vehicles = Order.objects.all()
-    print(selected_vehicles)
-    
-    context ={'vehicles':vehicles,'selected_vehicles':selected_vehicles}
-   
-    
-    return render(request,'client/dashboards.html',context)
-  
-   
- 
+    vehicles = Vehicles.objects.all()
+    try:    
+      
+        client = get_object_or_404(Client, user=request.user) 
+        selected_vehicles = client.order_set.all()  
 
- 
-def display_vehicles(request):
+    except ObjectDoesNotExist: 
+        client = None
+        selected_vehicles = []
+
+
+    context ={'vehicles':vehicles,
+              'selected_vehicles':selected_vehicles,
+              'client':client} 
+    return render(request, 'client/dashboards.html', context) 
     
-    selected_vehicles = Order.objects.filter(vehicles__name='vehicles')
-  
-
-    context = { 'selected_vehicles':selected_vehicles}
-       
-    return render(request, 'client/dashboards.html',context) 
-
+    
+def orders(request):
+    if request.method =='POST':
+       selected_vehicle_ids = request.POST.getlist('boxes')
+       client = Client.objects.get(user=request.user)
+       # Clear existing orders and create new ones for selected vehicles
+       client.order_set.all().delete()
+       for vehicle_id in selected_vehicle_ids:
+            vehicle = Vehicles.objects.get(id=vehicle_id)
+            Order.objects.create(client=client, vehicles=vehicle, status='Booked')
+        
+       return redirect('dashboards')
+    else:
+        form = OrderForm()
+    
+    context = {'form': form}
+    return render(request, 'client/save_vehicle.html', context)
+             
+             
 
 @login_required
 def client(request, pk):

@@ -31,9 +31,14 @@
             {% endif %} 
           </td>
           <td>
-         
-            <input type="checkbox" name="item1"></td>
-           </td>
+            {% if vehicle.id in vehicles %}
+    
+          <input type="checkbox" checked="checked" value={{vehicle.id}} name="boxes">
+          {% else %}
+          <input type="checkbox" value={{vehicle.id}} name="boxes">
+          {% endif %}
+        </td>
+           
       </tr>
       {%  endfor %}
       {% else %}
