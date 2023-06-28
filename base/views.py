@@ -5,7 +5,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from .forms import VehiclesForm, MessageForm, DisplayForm
-from .models import Display,Vehicles,UserProfile,Messages
+from .models import Display,Vehicles
+from client.models import Order,Client
 
 def login_view(request):
     
@@ -62,11 +63,18 @@ def dashboard(request):
         if 'submitted' in request.GET:
             submitted = True
     
-    vehicles = Vehicles.objects.all() 
+    vehicles = Vehicles.objects.all()
+
+    clients = Client.objects.all()
+
+    orders = Order.objects.all() 
+   
     context = {
         'form': form,
         'submitted': submitted, 
-        'vehicles': vehicles
+        'vehicles': vehicles,
+         'selected_orders': orders,
+         'clients':clients
     }
     return render(request, 'base/dashboard.html', context)  
 def display(request):
