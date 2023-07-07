@@ -99,6 +99,7 @@ body {
    width: auto;
 }
 
+
 .navbar-link {
    border-radius: 9px;
 }
@@ -122,6 +123,7 @@ body {
  .buttons {
    display: flex;
  }
+
  
  #sign-up {
    margin-right: 0.5rem;

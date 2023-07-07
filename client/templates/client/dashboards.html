@@ -32,7 +32,7 @@
   <section id="vehicle">
     <div id="vehicleInfo">
       <h2>Vehicles</h2>
-      <form method="POST" action="{% url 'save_vehicle' %}">
+      <form method="POST" action="{% url 'client:save_vehicle' %} ">
         {% csrf_token %}
         {{form}}
       {% include 'client/vehicle.html' %}
@@ -41,9 +41,6 @@
   </form>
 </div>
    
-    
-
-
 </div>
 </div>
 </div>

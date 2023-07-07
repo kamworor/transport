@@ -7,7 +7,7 @@ from . import views
 
 
 
-
+app_name = 'client'
 urlpatterns = [
     path('', views.home, name="home"),
     path('dashboards/', views.dashboards, name="dashboards"),
