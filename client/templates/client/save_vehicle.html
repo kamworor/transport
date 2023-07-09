@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+
 {% block content %}
 <div class="grid">
   <div class="sidebar">
@@ -15,7 +16,11 @@
       <h2>Save Vehicles</h2>
       <form method="POST" action="{% url 'save_vehicle' %}">
         {% csrf_token %}
-        {{ form }}
+        {% for vehicle in vehicles %}
+          <input type="checkbox" name="boxes" value="{{ vehicle.id }}"
+          {% if vehicle in selected_vehicles %} checked="checked"{% endif %}>
+          <label>{{ vehicle.vehicleType }}</label><br>
+        {% endfor %}
         <input type="submit" value="Save" class="green-button">
       </form>
     </div>

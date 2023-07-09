@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from .decorators import  allowed_users
 from .forms import VehiclesForm, MessageForm, DisplayForm
 from .models import Display,Vehicles
 from client.models import Order,Client
@@ -27,21 +28,19 @@ def login_view(request):
 
 def logoutUser(request):
     logout(request)
-    return render(request, 'base/home.html')
+    return render(request, 'base/login.html')
+
 
 def registerUser(request): 
     form = UserCreationForm()
-
-    
     if request.method == 'POST':
-
             form = UserCreationForm(request.POST)   
             if form.is_valid():
                 user = form.save(commit=False) 
                 user.username = user.username.lower()     
                 user.save()
                 login(request, user)
-                return redirect('dashboard')
+                return redirect('login')
             else:
                messages.error(request, 'An error occured during registration')
    
@@ -50,6 +49,7 @@ def registerUser(request):
 def home(request):
     return render(request,'base/home.html' ) 
 
+@allowed_users(allowed_roles=['admin']) 
 def dashboard(request):
     submitted = False
     
@@ -57,7 +57,7 @@ def dashboard(request):
         form = VehiclesForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/base/display')
+            return redirect('dashboard')
     else:
         form = VehiclesForm()
         if 'submitted' in request.GET:
@@ -76,7 +76,9 @@ def dashboard(request):
          'selected_orders': orders,
          'clients':clients
     }
-    return render(request, 'base/dashboard.html', context)  
+    return render(request, 'base/dashboard.html', context) 
+
+@allowed_users(allowed_roles=['admin'])
 def display(request):
      display = Vehicles.objects.all()
 
