@@ -16,6 +16,7 @@ from base.models import Vehicles
 
 # Create your views here.
 
+
 def home(request):
     return render(request,'client/home.html' )  
 
